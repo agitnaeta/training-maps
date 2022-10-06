@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base target="_top">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>MAP</title>
+	
+	<link rel="shortcut icon" type="image/x-icon" href="docs/images/favicon.ico" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css" integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js" integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg=" crossorigin=""></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+ 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+ 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+	<style>
+		html, body {
+			height: 100%;
+			margin: 0;
+		}
+		.leaflet-container {
+			height: 400px;
+			width: 600px;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	</style>
+
+	
+</head>
+<body>
+
+
+ 	<div class="container-fluid">
+ 		<div class="row">
+	 <div class="col-sm-3 col-md-6 col-lg-4 col-xl-2">
+
+ 				<p id="demo"></p>
+					<script class="center">
+						setInterval(myTimer, 1000);
+					function myTimer() {
+					const d = new Date();
+					document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+					}
+	</script>
+
+		</div>
+
+
+<div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+
+	<div id="map" style="width: 1955px; height: 950px;"></div>
+
+<div id='map'></div>
+
+<script>
+	var cities = L.layerGroup();
+
+ var jakarta = L.marker([-6.1755387,106.8276328]).bindPopup('JAKARTA.').addTo(cities)
+ var   bandung   = L.marker([-6.9157364,107.6340709]).bindPopup('BANDUNG.').addTo(cities)
+ var   semarang   = L.marker([-7.0060375,110.4553558]).bindPopup('KOTA SEMARANG.').addTo(cities)
+ var   surabaya    = L.marker([-7.2579237,112.7609116]).bindPopup('SURABAYA.').addTo(cities)
+ var	yogyakarta    = L.marker([-7.8287382,110.3866549]).bindPopup('YOGYAKARTA').addTo(cities)
+var	denpasar    = L.marker([-8.6709504,115.2136412]).bindPopup('DENPASAR').addTo(cities)
+var	tasik  = L.marker([-7.350524,108.2184272]).bindPopup('TASIKMALAYA').addTo(cities)
+var	cirebon 	= L.marker([-6.7290495,108.578849]).bindPopup('CIREBON').addTo(cities)
+var	kotabekasi	= L.marker([-6.2383286,106.9786294]).bindPopup('BEKASI').addTo(cities)
+var	deppok	= L.marker([-6.4023664,106.7973264]).bindPopup('DEPOK').addTo(cities)
+var	semarang	= L.marker([-6.1172559,106.1555148]).bindPopup('SERANG').addTo(cities)
+var	bogor	= L.marker([-6.5975624,106.8078293]).bindPopup('BOGOR').addTo(cities)
+var	sukabumi	= L.marker([-6.9215319,106.9260343]).bindPopup('SUKABUMI').addTo(cities)
+var	karawang	= L.marker([-6.3208728,107.3209122]).bindPopup('KARAWANG').addTo(cities)
+var	subang	= L.marker([-6.5625573,107.761451]).bindPopup('SUBANG').addTo(cities)
+var	purwkarta	= L.marker([-6.5413772,107.4474713]).bindPopup('PURWAKRTA').addTo(cities)
+var	sumedang	= L.marker([-6.849476, 107.923328]).bindPopup('sumedang').addTo(cities)
+var	banten	= L.marker([-6.676339,105.9096172]).bindPopup('banten').addTo(cities)
+var	tegal	= L.marker([-6.8687116,109.1476836]).bindPopup('TEGAL').addTo(cities)
+var	cilacap	= L.marker([-7.7074811,109.0312696]).bindPopup('CILACAP').addTo(cities)
+var	purwokerto	= L.marker([-7.424887,109.2410336]).bindPopup('PURWOKERTO').addTo(cities)
+
+
+	var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+	var mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+ 
+	var streets = L.tileLayer(mbUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
+
+	var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 19,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	});
+
+	var map = L.map('map', {
+		center: [-2.5712443,120.0079899],
+		zoom: 5,
+		layers: [osm, cities]
+	});
+
+	var baseLayers = {
+		'Street': osm,
+		
+	};
+
+	var overlays = {
+		'Cities': cities
+	};
+
+	var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+
+	var a  = L.marker([-6.8596877,107.9207383]).bindPopup('')
+	var b  = L.marker([-6.8474202,107.9241232]).bindPopup('')
+	var c = L.marker([-6.9219701,107.6071052]).bindPopup('')
+	var d = L.marker([-6.8898702,107.60741]).bindPopup('')
+	var e  = L.marker([]).bindPopup('')
+	var f = L.marker([]).bindPopup('')
+	var g = L.marker([]).bindPopup('')
+	var h = L.marker([]).bindPopup('')
+	var i = L.marker([]).bindPopup('')
+
+	var parks = L.layerGroup([a,b,c,d,e]);
+	var satellite = L.tileLayer(mbUrl, {id: 'mapbox/satellite-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
+	layerControl.addBaseLayer(satellite, 'Satellite');
+	layerControl.addOverlay(parks, 'Parks');
+</script>
+
+</div>
+</div>
+</div>
+</body>
+</html>
+
