@@ -1,0 +1,193 @@
+{
+  "titik" :[
+    {
+      "nama_kota": "JAKARTA",
+      "lat": "-6.2104216",
+      "lng": "106.8455587"
+    },
+    {
+      "nama_kota": "BANDUNG",
+      "lat": "-6.9171368",
+      "lng": "107.6191075"
+    },
+     {
+      "nama_kota": "KOTA SEMARANG",
+      "lat": "-7.0060375",
+      "lng": "110.4553558"
+    },
+    {
+      "nama_kota": "SURABAYA",
+      "lat": "-7.2579237",
+      "lng": "112.7609116"
+    },
+        {
+      "nama_kota": "YOGYAKARTA",
+      "lat": "-7.795789",
+      "lng": "110.3697458"
+    },
+    {
+      "nama_kota": "DENPASAR",
+      "lat": "-8.6709504",
+      "lng": "115.2136412"
+    },
+     {
+      "nama_kota": "TASIKMALAYA",
+      "lat": "-7.350524",
+      "lng": "108.2184272"
+    },
+    {
+      "nama_kota": "CIREBON",
+      "lat": "-6.7290495",
+      "lng": "108.578849"
+    },
+     {
+      "nama_kota": "BEKASI",
+      "lat": "-6.2383286",
+      "lng": "106.9786294"
+    },
+    {
+      "nama_kota": "DEPOK",
+      "lat": "-6.4023664",
+      "lng": "106.7973264"
+    },
+     {
+      "nama_kota": "SERANG",
+      "lat": "-6.1172559",
+      "lng": "106.1555148"
+    },
+    {
+      "nama_kota": "BOGOR",
+      "lat": "-6.5975624",
+      "lng": "106.8078293"
+    },
+     {
+      "nama_kota": "SUKABUMI",
+      "lat": "-6.9215319",
+      "lng": "106.9260343"
+    },
+    {
+      "nama_kota": "KARAWANG",
+      "lat": "-6.3208728",
+      "lng": "107.3209122"
+    },
+{
+      "nama_kota": "SUBANG",
+      "lat": "-6.5625573",
+      "lng": "107.761451"
+    },
+    {
+      "nama_kota": "PURWAKARTA",
+      "lat": "-6.5413772",
+      "lng": "107.4474713"
+    },
+{
+      "nama_kota": "SUMEDANG",
+      "lat": "-6.849476",
+      "lng": "107.923328"
+    },
+    {
+      "nama_kota": "BANTEN",
+      "lat": "-6.676339",
+      "lng": "105.9096172"
+    },
+    {
+      "nama_kota": "TEGAL",
+      "lat": "-6.8687116",
+      "lng": "109.1476836"
+    },
+    {
+      "nama_kota": "CILACAP",
+      "lat": "-7.7074811",
+      "lng": "109.0312696"
+    },
+    {
+      "nama_kota": "PURWOKERTO",
+      "lat": "-7.424887",
+      "lng": "109.2410336"
+    }
+  
+],
+
+"titik2" : [
+    {
+  "nama_tempat": "TAMAN ENDOG",
+      "lat": "-6.8474202",
+      "lng": "107.9241232"
+  },
+  {
+  "nama_tempat": "ALUN-ALUN BANDUNG",
+      "lat": "-6.9219701",
+      "lng": "107.6071052"
+  },
+  {
+  "nama_tempat": "KEBUN BINATANG",
+      "lat": "-6.8898702",
+      "lng": "107.60741"
+  },
+  {
+  "nama_tempat": "MONAS",
+      "lat": "-6.1753859",
+      "lng": "106.8272086"
+  },
+  {
+  "nama_tempat": "ALUN-ALUN SUBANG",
+      "lat": "-6.5711491",
+      "lng": "107.761634"
+  },
+  {
+  "nama_tempat": "TAMAN SUROBOYO",
+      "lat": "-7.2254224",
+      "lng": "112.7881629"
+  },
+    {
+  "nama_tempat": "GARUDA WISNU KENCANA",
+      "lat": "-8.8104444",
+      "lng": "115.167657"
+  },
+ {
+  "nama_tempat": "DAERAH ISTIMEWAH YOGYAKARTA",
+      "lat": "-7.8991559",
+      "lng": "115.167657"
+  },
+{
+  "nama_tempat": "CURUG SABUK",
+      "lat": "-6.926443",
+      "lng": "107.904435"
+  },  
+ {
+  "nama_tempat": "",
+      "lat": "-6.934122",
+      "lng": "107.881858"
+  },
+{
+  "nama_tempat": "PUNCAK GG.KERENCENG",
+      "lat": "-6.934122",
+      "lng": "107.881858"
+  },
+ {
+  "nama_tempat": "PUNCAK GG.THAMPOMAS",
+      "lat": "-6.7625854",
+      "lng": "107.9613242"
+  },
+{
+  "nama_tempat": "PUNCAK GG CIKURAY",
+      "lat": "-7.3224689",
+      "lng": "107.8599675"
+  },
+ {
+  "nama_tempat": "SURAMADU",
+      "lat": "-7.183486",
+      "lng": "112.780480"
+  },
+{
+  "nama_tempat": "GG.GEDE",
+      "lat": "[-6.789829",
+      "lng": "106.983183"
+  },
+ {
+  "nama_tempat": "PUNCAK GG.CEREME",
+      "lat": "-6.8947191",
+      "lng": "108.4104027"
+  }
+]
+}
