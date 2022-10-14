@@ -28,16 +28,9 @@
 <body>
  	<div class="container-fluid">
  		<div class="row">
-	 <div class="col-sm-3 col-md-6 col-lg-4 col-xl-2">
- 				<p id="demo"></p>
-					<script class="center">
-						setInterval(myTimer, 1000);
-					function myTimer() {
-					const d = new Date();
-					document.getElementById("demo").innerHTML = d.toLocaleTimeString();
-					}
-	</script>
-		</div>
+	 <div id="list-lokasi" class="col-sm-3 col-md-6 col-lg-4 col-xl-2">
+	
+	 </div>
 
 <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
 	<div id="map" style="width: 1955px; height: 950px;"></div>
@@ -90,6 +83,19 @@
 	var satellite = L.tileLayer(mbUrl, {id: 'mapbox/satellite-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
 	layerControl.addBaseLayer(satellite, 'Satellite');
 	layerControl.addOverlay(tempat, 'tempat');	
+
+
+			var nama_kota = " bandung";
+	var square = document.createElement("div");
+	var text = document.createElement('p');
+	square.appendChild(text)
+
+	text.innerHTML =`nama Kota: ${nama_kota}`
+
+	var listLokasi = document.getElementById("list-lokasi");
+	listLokasi.appendChild(square)
+
+			
 	});
 </script>
 </div>
