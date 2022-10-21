@@ -73,26 +73,45 @@ square.appendChild(text)
 
 	var locations =[]
 	var titik2 = data.titik2	
-		titik2.map((t)=>{
-	var location = L.marker([t.lat,t.lng]).bindPopup(t.nama_tempat);
-	locations.push(location)
+	titik2.map((t)=>{
+				// t adalah objek lokasi 
 
-	var square = document.createElement("div");
-	var text = document.createElement('h');
+				var location = L.marker([t.lat,t.lng]).bindPopup(t.nama_tempat);
+				locations.push(location)
 
-square.appendChild(text)
+				var square = document.createElement("div");
+				square.dataset.lat = t.lat
+				square.dataset.lng = t.lng
+				square.addEventListener("click",function () {
+					onclickDisplayAlert(t, map)
+				})
 
-	text.innerHTML =`NAMA TEMPAT: ${t.nama_tempat}`
-	var listLokasi = document.getElementById("list-lokasi");
-	listLokasi.appendChild(square)
 
 
-})
+				var text = document.createElement('h');
+				square.appendChild(text)
+
+				text.innerHTML =`NAMA TEMPAT: ${t.nama_tempat}`
+				var listLokasi = document.getElementById("list-lokasi");
+				listLokasi.appendChild(square)
+	})
   var tempat = L.layerGroup(locations)
 	var satellite = L.tileLayer(mbUrl, {id: 'mapbox/satellite-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
 	layerControl.addBaseLayer(satellite, 'Satellite');
 	layerControl.addOverlay(tempat, 'tempat');
 });
+
+
+function onclickDisplayAlert(objectLocation,map){
+
+	var latlng = L.latLng(objectLocation.lat, objectLocation.lng);
+
+	map.setView(latlng,map.getZoom())
+setTimeout(function(){
+	L.marker([objectLocation.lat,objectLocation.lng]).addTo(map);
+},300)
+}
+
 
 </script>
 </div>
