@@ -14,92 +14,121 @@
  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 	<style>
 		html, body {
-			height: 100%;
-			margin: 0;
-		}
-		.leaflet-container {
-			height: 400px;
-			width: 600px;
-			max-width: 100%;
-			max-height: 100%;
-		}
+		height: 100%;
+		margin: 0;}
+	.leaflet-container {
+	height: 400px;
+	width: 600px;
+	max-width: 100%;
+	max-height: 100%;}
 	</style>
 </head>
 <body>
  	<div class="container-fluid">
  		<div class="row">
-	 <div class="col-sm-3 col-md-6 col-lg-4 col-xl-2">
- 				<p id="demo"></p>
-					<script class="center">
-						setInterval(myTimer, 1000);
-					function myTimer() {
-					const d = new Date();
-					document.getElementById("demo").innerHTML = d.toLocaleTimeString();
-					}
-	</script>
-		</div>
-
+	 <div id="list-lokasi" class="col-sm-3 col-md-6 col-lg-4 col-xl-2">
+	
+	 </div>
 <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
 	<div id="map" style="width: 1955px; height: 950px;"></div>
 <div id='map'></div>
 <script>
-
 	fetch("http://127.0.0.1:5500/data.json")
 	.then((response) => response.json())
   .then((data) => {
- 			var kota = L.layerGroup()
-			var titik = data.titik	
-			titik.map((t)=>{
-				L.marker([t.lat,t.lng]).bindPopup(t.nama_kota).addTo(kota)
-			})
+		var kota = L.layerGroup()
+		var titik = data.titik	
+	titik.map((t)=>{
+	L.marker([t.lat,t.lng]).bindPopup(t.nama_kota).addTo(kota)
+	
+	var square = document.createElement("div");
+	var text = document.createElement('h');
+square.appendChild(text)
+	text.innerHTML =`NAMA KOTA: ${t.nama_kota}`
+	var listLokasi = document.getElementById("list-lokasi");
+	listLokasi.appendChild(square)
+	
+})
+
 
 	var mbAttr = 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
 	var mbUrl = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
 	var streets = L.tileLayer(mbUrl, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
 	var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	});
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'});
+
 	var map = L.map('map', {
 		center: ([-2.5712443,120.0079899]),
 		zoom: 5,
-		layers: [osm, kota]
-	});
+		layers: [osm, kota]});
 	var baseLayers = {
 		'jalan': osm,
-		
 	};
 	var overlays = {
-		'kota': kota	};
+	'kota': kota
+	};
 
 	var layerControl = L.control.layers(baseLayers, overlays).addTo(map);
 
-	var a = L.marker([-6.8596877,107.9207383]).bindPopup('ALUN-ALUN SUMEDANG')
-	var b = L.marker([-6.8474202,107.9241232]).bindPopup('TAMAN ENDOG')
-	var c = L.marker([-6.9219701,107.6071052]).bindPopup('ALUN -ALUN BANDUNG')
-	var d = L.marker([-6.8898702,107.60741]).bindPopup('KEBUN BINATANG')
-	var e = L.marker([-6.1753859,106.8272086]).bindPopup('MONAS')
-	var f = L.marker([-6.5711491,107.7616349]).bindPopup('ALUN-ALUN SUBANG')
-	var g = L.marker([-7.2254224,112.7881629]).bindPopup('TAMAN SUROBOYO')
-	var h = L.marker([-8.8104444,115.167657]).bindPopup('GARUDA WISNU KENCANA')
-	var i = L.marker([-7.8991559,110.3903771]).bindPopup('DAERAH ISTIMEWAH YOGYAKARTA')
-	var j = L.marker([-6.926443,107.904435]).bindPopup('CURUG SABUK')
-	var k = L.marker([-6.934122,107.881858]).bindPopup('PUNCAK GG.KERENCENG')
-	var l = L.marker([-6.7625854,107.9613242]).bindPopup('PUNCAK GG.THAMPOMAS')
-	var m = L.marker([-7.3224689,107.8599675]).bindPopup('PUNCAK GG CIKURAY')
-	var n = L.marker([-7.183486,112.780480]).bindPopup('SURAMADU')
-	var o = L.marker([-6.789829,106.983183]).bindPopup('GG.GEDE')
-	var p = L.marker([-6.8947191,108.4104027]).bindPopup('PUNCAK GG.CEREME')
-	
-     var tempat = L.layerGroup([a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p])
+	var locations =[]
+	var titik2 = data.titik2	
+		titik2.map((t)=>{
+	var location = L.marker([t.lat,t.lng]).bindPopup(t.nama_tempat);
+	locations.push(location)
 
+	var square = document.createElement("div");
+	var text = document.createElement('h');
+
+square.appendChild(text)
+
+	text.innerHTML =`NAMA TEMPAT: ${t.nama_tempat}`
+	var listLokasi = document.getElementById("list-lokasi");
+	listLokasi.appendChild(square)
+
+
+})
+  var tempat = L.layerGroup(locations)
 	var satellite = L.tileLayer(mbUrl, {id: 'mapbox/satellite-v9', tileSize: 512, zoomOffset: -1, attribution: mbAttr});
 	layerControl.addBaseLayer(satellite, 'Satellite');
-	layerControl.addOverlay(tempat, 'tempat');	
-	});
+	layerControl.addOverlay(tempat, 'tempat');
+});
+
 </script>
 </div>
 </div>
 </div>
 </body>
 </html>        
+
+
+
+
+
+
+
+
+
+
+
+var markers = [];
+function markerFunction(id) {
+  for (var i in markers) {
+    var markerID = markers[i].options.title;
+    var position = markers[i].getLatLng();
+    if (markerID == id) {
+    	map.setView(position, 15);
+      markers[i].openPopup();
+    };
+  }
+}
+
+$("a").click(function() {
+  markerFunction($(this)[0].id);
+});
+
+
+
+
+
+
